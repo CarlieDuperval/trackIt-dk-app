@@ -1,9 +1,18 @@
-const functions = require("firebase-functions");
+import express from 'express'
+import dotenv from 'dotenv'
+import cors from 'cors'
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
+
+
+
+dotenv.config();
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// app.listen(5050, () => {
+//   console.log("Listening on Port: 5050");
 // });
+export const api = functions.https.onRequest(app);
+
+
