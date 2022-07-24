@@ -10,5 +10,6 @@ export const getDb = async () => {
 }
 
 export const getSalesCollection = async () => {
-    const db = await getDb
+    const db = await getDb()
+    return db.collection("sales")
 }
