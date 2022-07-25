@@ -19,3 +19,8 @@ export const getSaleById = async (id) => {
     const sale = await col.findOne({_id: new ObjectId(id) })
     return sale 
 }
+
+export const updateSales = async (id, updateObj) => {
+    const col = await getSalesCollection()
+    await col.updateOne({_id: new ObjectId(id)}, {$set: updateObj})
+}
