@@ -9,8 +9,8 @@ import {
 export const salesRouter = Router()
 
 salesRouter.post('sales', async (req, res)=>{
-    const { year, productName, productCategory, price, qtySold} = req.body
-    if(!year|| !productName|| !productCategory){
+    const { year, productCode, productDescription, productCategory, price, qtySold} = req.body
+    if(!year|| !productCode|| !productCategory){
         res.status(401).send('Invalid Request')
     }
 
