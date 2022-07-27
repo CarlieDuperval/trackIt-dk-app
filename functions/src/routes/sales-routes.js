@@ -1,7 +1,6 @@
 import { Router } from "express"
 import {
     createSale,
-    updateSales,
     getAllSales,
     updateSales
 } from '../services/sales-service.js'
@@ -29,4 +28,16 @@ salesRouter.post('sales', async (req, res)=>{
 salesRouter.get('sales', async (req, res) => {
     const allSales = await getAllSales()
     res.status(201).send(allSales)
+})
+
+salesRouter.patch('/sales/:id', async (req, res) => {
+    try {
+        const {id } = req.params
+        const updateSale = await updateSales(id)
+        res.status(201).send(updateSale)
+    } catch (error) {
+        console.error(error)
+        
+    }
+
 })
