@@ -25,3 +25,8 @@ salesRouter.post('sales', async (req, res)=>{
     const result = await createSale(sale)
     res.status(201).send(result)
 })
+
+salesRouter.get('sales', async (req, res) => {
+    const allSales = await getAllSales()
+    res.status(201).send(allSales)
+})
